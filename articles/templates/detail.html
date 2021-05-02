@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="mb-5">
+    <h1>{{ article.title }}</h1>
+    <div>
+        {{ article.body }}
+    </div>
+    <div class="pt-4">
+        By {{ article.author }} on {{ article.date }}
+    </div>
+    <div>
+        <div class="float-right">
+            {% if user.is_authenticated %}
+            <a href="{% url 'article_delete' article.id %}" class="btn btn-sm btn-danger">
+                Delete
+            </a>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

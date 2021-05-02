@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="mb-5">
+    <div class="alert alert-danger">
+        Are you sure want to delete {{ article.title }} ?
+    </div>
+    <div class="pt-3">
+        <form method="post">
+            {% csrf_token %}
+            <a href="{% url 'articles' %}" class="btn btn-secondary btn-sm">No</a>
+            <input type="submit" class="btn btn-danger btn-sm" value="Yes"/>
+        </form>
+    </div>
+</div>
+{% endblock %}

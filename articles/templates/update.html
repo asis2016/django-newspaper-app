@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<div class="mb-5">
+    <div class="card">
+        <div class="card-header">
+            Update article id: {{ article.id }}
+        </div>
+        <form method="post">
+            {% csrf_token %}
+            <div class="card-body">
+                {{ form | crispy }}
+            </div>
+            <div class="card-footer">
+                <input type="submit" value="Update">
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
