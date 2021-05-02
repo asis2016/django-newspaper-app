@@ -1,0 +1,1 @@
+# A basic Newspaper application made in Django.
