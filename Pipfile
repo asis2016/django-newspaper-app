@@ -6,6 +6,9 @@ name = "pypi"
 [packages]
 django = "*"
 django-crispy = "*"
+sendgrid-django = "*"
+whitenoise = "==4.1.4"
+gunicorn = "==19.9.0"
 
 [dev-packages]
 

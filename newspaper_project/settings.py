@@ -20,12 +20,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-82fe0_^x$r33o7$8n@*lb*t@=k-$ozmt*4m=6=f5jdrl8xx!m8'
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = int(os.environ.get('DEBUG', default=0))
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
 
     'crispy_forms',
@@ -47,6 +48,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -124,6 +126,14 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
+STATICFILES_FINDERS = [
+    "django.contrib.staticfiles.finders.FileSystemFinder",
+    "django.contrib.staticfiles.finders.AppDirectoriesFinder",
+]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
@@ -137,6 +147,13 @@ LOGIN_REDIRECT_URL='home'
 LOGOUT_REDIRECT_URL='home'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 TIME_ZONE ='Europe/Berlin'
+
+EMAIL_HOST = 'smtp.sendgrid.net'
+EMAIL_HOST_USER = 'apikey'
+EMAIL_HOST_PASSWORD = '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'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+#EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
