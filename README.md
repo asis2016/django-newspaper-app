@@ -63,22 +63,35 @@ Goto [http://127.0.0.1:8000/admin](http://127.0.0.1:8000/admin)
 - username: admin
 - password: admin
   
-
-
   
 ## Screenshots
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+### Index
+![index](/screenshots/a.png)
+
+### Articles
+![article](/screenshots/b.png)
+
+### Delete an article
+![delete](/screenshots/f.png)
+
+### Login
+![login](/screenshots/c.png)
+
+### Change password
+![change password](/screenshots/d.png)
+
+### Add an article
+![add article](/screenshots/e.png)
+
+### 
+![]()
 
 ## Feedback
 
 If you have any feedback, please reach out to us at hello@amaharjan.com
 
   
-## Acknowledgements
 
- - [Awesome Readme Templates](https://awesomeopensource.com/project/elangosundar/awesome-README-templates)
- - [Awesome README](https://github.com/matiassingers/awesome-readme)
- - [How to write a Good readme](https://bulldogjob.com/news/449-how-to-write-a-good-readme-for-your-github-project)
 
   
