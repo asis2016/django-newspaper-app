@@ -6,7 +6,7 @@ services:
     #command: python /code/manage.py runserver 0.0.0.0:8000
     command: gunicorn newspaper_project.wsgi -b 0.0.0.0:8000
     environment:
-        - SECRET_KEY=django-insecure-82fe0_^x$$r33o7$$8n@*lb*t@=k-$$ozmt*4m=6=f5jdrl8xx!m8
+        - SECRET_KEY=replace_SECRET_KEY_from_readme.md
         - DEBUG=1
     volumes:
       - .:/code
